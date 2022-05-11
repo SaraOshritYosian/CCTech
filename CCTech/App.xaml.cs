@@ -13,5 +13,6 @@ namespace CCTech
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

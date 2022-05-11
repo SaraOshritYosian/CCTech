@@ -23,6 +23,7 @@ namespace CCTech
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
