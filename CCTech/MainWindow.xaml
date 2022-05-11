@@ -3,11 +3,88 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CCTech"
+     
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label Content="Hello" FontSize="40"/>
-        <Label Content="enter name" FontSize="20  "/>
+
+
+    <Grid Margin="5">
+        <StackPanel>
+            <TextBlock 
+                Margin="0,0,0,5"
+                Text="{Binding DemoText}"
+                TextWrapping="Wrap" />
+
+            <Button Command="{Binding ChangeTextCommand}">write text</Button>
+
+            <TextBlock
+                Margin="0,20,0,5"
+                TextWrapping="Wrap" Width="179" Height="52">
+                Welcome to Car Charging Tech!
+            </TextBlock>
+
+            <Button Command="{Binding OpenWindowCommand}" RenderTransformOrigin="0.5,0.5" Height="62" Width="103">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.173"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform> enter to praking
+            </Button>
+
+            <TextBlock 
+                Margin="0,20,0,5"
+                TextWrapping="Wrap">
+                Clicking this button will do the same as the above, only the widow will be opened as a dialog, meaning that the parent window cannot be focused until the child window is closed.
+            </TextBlock>
+
+            <Button Command="{Binding OpenDialogCommand}">Open a new dialog Window</Button>
+
+
+            <TextBlock 
+                Text="{Binding ModelText}"
+                Margin="0,20,0,5"
+                TextWrapping="Wrap" />
+
+
+            <TextBlock 
+                Margin="0,20,0,5"
+                TextWrapping="Wrap">
+                This shows how we use a two way binding to get information back from the Window, type your name into the text box for a personalised greeting.
+            </TextBlock>
+
+            <TextBox Text="{Binding NameInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock Text="{Binding GreetingText}" />
+
+            <TextBlock 
+                Margin="0,20,0,5"
+                TextWrapping="Wrap">
+                This makes use of the Messagebox Service to show a native Windows message box.
+            </TextBlock>
+
+            <Button Command="{Binding ShowMessageCommand}">Show message</Button>
+
+
+            <TextBlock 
+                Margin="0,20,0,5"
+                TextWrapping="Wrap">
+                Clicking this button will do the same as the above, only the widow will be opened as a dialog, meaning that the parent window cannot be focused until the child window is closed.
+            </TextBlock>
+
+            <Button Command="{Binding OpenAlternativeWindowCommand}">Open an alternative Window</Button>
+
+            <TextBlock 
+                Margin="0,20,0,5"
+                TextWrapping="Wrap">
+                Clicking this button will use the default messenger instance to send a message to all open instances of the Main Window, causing the demo text to change (use the open new window button to open a few new windows before clicking this to get the full effect).
+            </TextBlock>
+
+            <Button Command="{Binding SendMessageCommand}">Send message</Button>
+        </StackPanel>
     </Grid>
+
 </Window>
+
