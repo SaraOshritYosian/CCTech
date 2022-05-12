@@ -23,12 +23,28 @@ namespace CCTech
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void add_button_Click(object sender, RoutedEventArgs e)
-        {
-            
-            Customer customer = new Customer(name.Text, phone.Text);
         }
-    }
+            private void add_button_Click(object sender, RoutedEventArgs e)
+            {
+
+                Customer customer = new Customer(name.Text, phone.Text, DateTime.Parse(leaveTime.Text), int.Parse(currentPrecentage.Text));
+                Clist.Add(customer);
+                foreach (Customer customer1 in Clist)
+                {
+                customer1.CalcPriority();
+                }
+            }
+
+            private void name_TextChanged(object sender, TextChangedEventArgs e)
+            {
+
+            }
+
+            private void currentPrecentage_TextChanged(object sender, TextChangedEventArgs e)
+            {
+
+            }
+        }
+    
 }

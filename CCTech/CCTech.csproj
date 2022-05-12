@@ -6,4 +6,19 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="images\scanQR.jpeg\**" />
+    <EmbeddedResource Remove="images\scanQR.jpeg\**" />
+    <None Remove="images\scanQR.jpeg\**" />
+    <Page Remove="images\scanQR.jpeg\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="images\scanQR.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\scanQR.jpeg" />
+  </ItemGroup>
+
 </Project>

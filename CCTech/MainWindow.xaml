@@ -5,16 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCTech"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,400,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400*"/>
-            <ColumnDefinition Width="57*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Margin="104,51,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="104,97,0,0" TextWrapping="Wrap" Text="phone" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="other" HorizontalAlignment="Left" Margin="104,136,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="add_button" Content="Add" Click="add_button_Click" HorizontalAlignment="Left" Margin="290,69,0,0" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="450" Width="839">
+    <Grid x:Name="exitTime" Margin="0,0,10,0">
+
+        <TextBox x:Name="name" HorizontalAlignment="Left" Margin="104,51,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="151" TextChanged="name_TextChanged" Height="38"/>
+        <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="104,97,0,0" TextWrapping="Wrap" Text="phone" VerticalAlignment="Top" Width="151" Height="34"/>
+        <TextBox x:Name="currentPrecentage" HorizontalAlignment="Left" Margin="104,136,0,0" TextWrapping="Wrap" Text="current precentage" VerticalAlignment="Top" Width="151" TextChanged="currentPrecentage_TextChanged" Height="41"/>
+        <Button x:Name="add_button" Content="אישור" Click="add_button_Click" HorizontalAlignment="Left" Margin="104,322,0,0" VerticalAlignment="Top" Height="62" Width="221"/>
+       
+        <DatePicker  RenderTransformOrigin="0.5,0.5" Margin="100,204,502,156" x:Name="leaveTime">
+            <DatePicker.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.357"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DatePicker.RenderTransform>
+        </DatePicker>
+        <Image Height="100" Width="100"/>
+        <Image Height="100" Width="100" Source="/Images/google.png"/>
 
     </Grid>
 </Window>

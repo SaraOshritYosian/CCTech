@@ -15,8 +15,8 @@ namespace CCTech
         private int numberOfStands;
         private int loadFactor;
         public static int numberOfFreeStands = 0;
-
-
+        int available = 1;//0=tafus
+        
     }
 
 }

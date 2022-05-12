@@ -13,6 +13,7 @@ namespace CCTech
 		const double hoursWeightPrecents = 0.3;
 		DateTime feeTimeStart;
 		DateTime feeTimeEnd;
+		DateTime startCharging;
 		const double percentsPerHour = 0.25;//אחוז טעינה לדקת הטענה
 		private DateTime exitTime;//To calculate his priority
 		private DateTime entryTime;//Obsolescence
@@ -28,6 +29,15 @@ namespace CCTech
 		{
 			nuberOfCustomers++;
 		}
+		public Customer(string _name, string phone, DateTime leavingTime, int percent)
+        {
+			feeTimeStart = DateTime.Now;
+			feeTimeEnd = leavingTime;
+			name = _name;
+			cellphoneNumber = phone;
+			currentPercentage = percent;
+			wantedHours = nuberOfCustomers;
+        }
 		public void SetDepartureTime(DateTime newDepartureTime)
 		{
 			exitTime = newDepartureTime;
