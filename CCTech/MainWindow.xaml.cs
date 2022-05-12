@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace CCTech
 {
     /// <summary>
@@ -20,10 +21,25 @@ namespace CCTech
     /// </summary>
     public partial class MainWindow : Window
     {
+        //public Customer CreateCustomer()
+        //{
+        //    //Customer cus = new Customer();
+
+        //    //Console.WriteLine("enter your name: ");
+        //    //cus.setName(Console.ReadLine());
+        //    //Console.WriteLine("enter your phone: ");
+        //    //cus.setCellphoneNumber(Console.ReadLine());
+        //    //Console.WriteLine("enter your exit time: ");
+        //    //cus.setDepartureTime(Console.ReadLine());//how can get the input in DateTime class??
+        //    //Console.WriteLine("enter your current percentage: ");
+        //    //cus.setCurrentPercentage(Console.ReadLine());//how can get the input in DateTime class??
+
+        // //   return cus;
+        //}
         public MainWindow()
         {
             InitializeComponent();
-            
+           
         }
     }
 }

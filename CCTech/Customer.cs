@@ -6,83 +6,130 @@ using System.Threading.Tasks;
 
 namespace CCTech
 {
-    class Customer
-    {
+
+	class Customer
+	{
+		const double butteryWeightPrecents = 0.7;
+		const double hoursWeightPrecents = 0.3;
 		private DateTime exitTime;//To calculate his priority
 		private DateTime entryTime;//Obsolescence
 		private string name;//For the message
-		private int cellphoneNumber;//For the message
-		private int priority;//For a priority queue
+		private string cellphoneNumber;//For the message
+		private double priority;//For a priority queue
 		private float fineAmount = 0;//If he's late
-		private float currentPercentage;//To calculate his priority
-		public void setDepartureTime(DateTime newDepartureTime)
+		private int currentPercentage;//To calculate his priority
+		private int wantedHours;
+		public static int nuberOfCustomers = 0;
+
+		public Customer()
+        {
+			nuberOfCustomers++;
+        }
+		public void SetDepartureTime(DateTime newDepartureTime)
 		{
 			exitTime = newDepartureTime;
 		}
 
-		public DateTime getDepartureTime()
+		public DateTime GetDepartureTime()
 		{
 			return exitTime;
 		}
 
-		public void setEntryTime(DateTime newEntryTime)
+		public void SetEntryTime(DateTime newEntryTime)
 		{
 			entryTime = newEntryTime;
 		}
 
-		public DateTime getEntryTime()
+		public DateTime GetEntryTime()
 		{
 			return entryTime;
 		}
 
-		public void setName(string newName)
+		public void SetName(string newName)
 		{
 			name = newName;
 		}
 
-		public string getName()
+		public string GetName()
 		{
 			return name;
 		}
 
-		public void setCellphoneNumber(int newCellphoneNumber)
+		public void SetCellphoneNumber(string newCellphoneNumber)
 		{
 			cellphoneNumber = newCellphoneNumber;
 		}
 
-		public int getCellphoneNumber()
+		public string GetCellphoneNumber()
 		{
 			return cellphoneNumber;
 		}
 
-		public void setPriority(int newPriority)
+		public void SetPriority(int newPriority)
 		{
 			priority = newPriority;
 		}
 
-		public int getPriority()
+		public double GetPriority()
 		{
 			return priority;
 		}
 
-		public void setFineAmount(int newFineAmount)
+		public void SetFineAmount(int newFineAmount)
 		{
 			fineAmount = newFineAmount;
 		}
 
-		public float getFineAmount()
+		public float GetFineAmount()
 		{
 			return fineAmount;
 		}
 
-		public void setCurrentPercentage(float newCurrentPercentage)
+        public void SetCurrentPercentage(int newCurrentPercentage)
 		{
 			currentPercentage = newCurrentPercentage;
 		}
 
-		public float getCurrentPercentage()
+        public int GetCurrentPercentage()
 		{
 			return currentPercentage;
 		}
+        public int HefreshMinuts()
+		{
+			return exitTime.Hour * 60 + exitTime.Minute - entryTime.Hour * 60 + entryTime.Minute;
+
+		}
+		public void RaundedHefreshHours()
+		{
+			int hefreshByMinuts = HefreshMinuts();
+			int x = hefreshByMinuts / 60;
+			int y = hefreshByMinuts - x * 60;
+			if (y >= 30)
+			{
+				wantedHours = x + 1;
+			}
+			else
+			{
+				wantedHours = x;
+			}
+		}
+
+
+		public double HoursNormalize()
+		{
+			return ((double)wantedHours) / 24;
+
+		}
+		public double PrecentsNormalize()
+		{
+			return ((double)currentPercentage) / 100;
+		}
+		public void CalcPriority()
+        {
+			priority = butteryWeightPrecents * PrecentsNormalize() + hoursWeightPrecents* HoursNormalize();
+
+		}
 	}
+	
 }
+	
