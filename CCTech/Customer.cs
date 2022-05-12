@@ -24,10 +24,15 @@ namespace CCTech
 		private int currentPercentage;//To calculate his priority
 		private int wantedHours;
 		public static int nuberOfCustomers = 0;
-
-		public Customer()
+		
+		
+		public Customer(string name,string phone,int currentBattery,int wantedHours)
 		{
 			nuberOfCustomers++;
+			this.name = name;
+			this.cellphoneNumber = phone;
+			this.currentPercentage = currentBattery;
+			this.wantedHours = wantedHours;
 		}
 		public Customer(string _name, string phone, DateTime leavingTime, int percent)
         {

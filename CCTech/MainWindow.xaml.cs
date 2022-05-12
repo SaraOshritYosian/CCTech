@@ -41,10 +41,16 @@ namespace CCTech
 
             }
 
-            private void currentPrecentage_TextChanged(object sender, TextChangedEventArgs e)
-            {
+        private void add_button_Click(object sender, RoutedEventArgs e)
+        {
 
+            Customer customer = new Customer(nameTextbox.Text, phoneTextbox.Text, Convert.ToInt32(currentBTextbox.Text), Convert.ToInt32(WantedHourstextbox.Text));
+            Clist.Add(customer);
+            foreach (Customer c in Clist)
+            {
+                c.CalcPriority();
             }
+            Clist.Sort();
         }
-    
+    }
 }
