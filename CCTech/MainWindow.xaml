@@ -6,15 +6,22 @@
         xmlns:local="clr-namespace:CCTech"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,400,0">
-        <Grid.ColumnDefinitions>
+    <Grid Margin="0,0,10,0">
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="57*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Margin="104,51,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="phone" HorizontalAlignment="Left" Margin="104,97,0,0" TextWrapping="Wrap" Text="phone" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="other" HorizontalAlignment="Left" Margin="104,136,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="add_button" Content="Add" Click="add_button_Click" HorizontalAlignment="Left" Margin="290,69,0,0" VerticalAlignment="Top"/>
+        </Grid.ColumnDefinitions>-->
+        <TextBox x:Name="nameTextbox" HorizontalAlignment="Left" Margin="236,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="36"/>
+        <TextBox x:Name="phoneTextbox" HorizontalAlignment="Left" Margin="236,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
+        <TextBox x:Name="currentBTextbox" HorizontalAlignment="Left" Margin="236,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="21"/>
+        <Button x:Name="add_button" Content="שלח לטעינה" Click="add_button_Click" HorizontalAlignment="Left" Margin="574,293,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.121,0.854" Height="67" Width="118"/>
+        <Label HorizontalAlignment="Left" Margin="42,47,0,0" VerticalAlignment="Top">
+            <Label x:Name="IdLable" Content="Id:" Width="114"/>
+        </Label>
+        <Label x:Name="PhoneLabe" Content="Phone number:" HorizontalAlignment="Left" Margin="42,92,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="CurrentPrecentLable" Content="Current battery precent:" HorizontalAlignment="Left" Margin="42,139,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="wantedhourslable" Content="Wanted hours:" HorizontalAlignment="Left" Margin="49,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="WantedHourstextbox" HorizontalAlignment="Left" Margin="236,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="36"/>
 
     </Grid>
 </Window>

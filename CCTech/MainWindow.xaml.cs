@@ -27,8 +27,14 @@ namespace CCTech
 
         private void add_button_Click(object sender, RoutedEventArgs e)
         {
-            
-            Customer customer = new Customer(name.Text, phone.Text);
+
+            Customer customer = new Customer(nameTextbox.Text, phoneTextbox.Text, Convert.ToInt32(currentBTextbox.Text), Convert.ToInt32(WantedHourstextbox.Text));
+            Clist.Add(customer);
+            foreach (Customer c in Clist)
+            {
+                c.CalcPriority();
+            }
+            Clist.Sort();
         }
     }
 }
