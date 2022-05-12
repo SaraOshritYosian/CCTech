@@ -11,7 +11,7 @@ namespace CCTech
 	{
 		const double butteryWeightPrecents = 0.7;
 		const double hoursWeightPrecents = 0.3;
-		 DateTime feeTimeStart;
+		DateTime feeTimeStart;
 		DateTime feeTimeEnd;
 		const double percentsPerHour = 0.25;//אחוז טעינה לדקת הטענה
 		private DateTime exitTime;//To calculate his priority
@@ -103,7 +103,7 @@ namespace CCTech
 
 		}
 		public int HefreshMinutsForFee()
-        {
+		{
 			return feeTimeEnd.Hour * 60 + feeTimeEnd.Minute - feeTimeStart.Hour * 60 + feeTimeStart.Minute;
 		}
 		public void RaundedHefreshHours()
@@ -137,28 +137,29 @@ namespace CCTech
 
 		}
 
-		 public int sendMassage(Customer c)//שולחת הודעה ומחזירה את סכום הקנס
-        {
+		public int sendMassage(Customer c)//שולחת הודעה ומחזירה את סכום הקנס
+		{
 
 			Console.WriteLine("Come and pick up your car,fees will be applied for arriving late");// או לפתוח חלון
 			Console.WriteLine("when you arrived please enter 1");
 			int answere = int.Parse(Console.ReadLine());
-			while (answere!=1)
-            {
-
-            }
+			while (answere != 1)
+			{
+				Console.WriteLine("when you arrived please enter 1,fees will be applied for arriving late");
+				answere = int.Parse(Console.ReadLine());
+			}
 			//הגיע
 
 			feeTimeEnd = DateTime.Now;
 			int sumTimeByMinuts = HefreshMinutsForFee();
-			if(sumTimeByMinuts<15)
-            {
+			if (sumTimeByMinuts < 15)
+			{
 				return 0;
-            }
-			if(sumTimeByMinuts>=15&& sumTimeByMinuts<30)
-            {
-				return 15; 
-            }
+			}
+			if (sumTimeByMinuts >= 15 && sumTimeByMinuts < 30)
+			{
+				return 15;
+			}
 			if (sumTimeByMinuts >= 30 && sumTimeByMinuts < 60)
 			{
 				return 50;
@@ -173,29 +174,28 @@ namespace CCTech
 
 		}
 		public void charging(int wantedHours)//מטעינה לפי מספר השעות הרצויות
-        {
+		{
 			int wantedPrecent = wantedHours * 15;//כמה אחוזים השעות טעינה האלו שוות
-			while(currentPercentage< wantedPrecent-3)//כי אני שולחת הודעה בשלושה האחרונים שיבוא לקחת
-            {
-				currentPercentage = (int) (HefreshMinuts() * percentsPerHour);
+			while (currentPercentage < wantedPrecent - 3)//כי אני שולחת הודעה בשלושה האחרונים שיבוא לקחת
+			{
+				currentPercentage = (int)(HefreshMinuts() * percentsPerHour);
 
 			}
 			//הטענו פחות 3 אחוזים
-			fineAmount=sendMassage(this);
+			fineAmount = sendMassage(this);
 			feeTimeStart = DateTime.Now;
 			currentPercentage += 3;//מוסיף את האחוזים הנותרים להטענה רצויה
-			if(fineAmount>=15&& fineAmount<100)
-            {
+			if (fineAmount >= 15 && fineAmount < 100)
+			{
 				Console.WriteLine("You have a fee in amount of" + fineAmount);
-            }
-            else
-            {
+			}
+			else
+			{
 				Console.WriteLine("Your car will be taken");
 			}
 			Console.WriteLine("Your car is charged succesfully!");
 		}
 
 	}
-	
+
 }
-	
