@@ -9,14 +9,33 @@ using System.Windows.Documents;
 
 namespace CCTech
 {
-      
+
     class StandsCharging
     {
-        private int numberOfStands;
-        private int loadFactor;
-        public static int numberOfFreeStands = 0;
+        public const int numberOfStands = 4;
+        public bool available = true;
+        public StandsCharging()
+        {
+            available = true;
+           
+        }
+          
+    
 
+    public bool GetAvailable()
+    {
+        return available;
 
     }
-
+    public void SetAvailable(bool avail)
+    {
+        available = avail;
+    }
 }
+}
+
+        
+
+     
+
+    

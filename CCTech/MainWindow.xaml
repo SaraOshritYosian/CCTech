@@ -7,21 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0,0,10,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/car12.jpeg"/>
+        </Grid.Background>
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="57*"/>
         </Grid.ColumnDefinitions>-->
-        <TextBox x:Name="nameTextbox" HorizontalAlignment="Left" Margin="236,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="36"/>
+        <TextBox x:Name="nameTextbox" HorizontalAlignment="Left" Margin="236,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="28"/>
         <TextBox x:Name="phoneTextbox" HorizontalAlignment="Left" Margin="236,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="26"/>
-        <TextBox x:Name="currentBTextbox" HorizontalAlignment="Left" Margin="236,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Height="21"/>
-        <Button x:Name="add_button" Content="שלח לטעינה" Click="add_button_Click" HorizontalAlignment="Left" Margin="574,293,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.121,0.854" Height="67" Width="118"/>
-        <Label HorizontalAlignment="Left" Margin="42,47,0,0" VerticalAlignment="Top">
-            <Label x:Name="IdLable" Content="Id:" Width="114"/>
+        <TextBox x:Name="currentBTextbox" HorizontalAlignment="Left" Margin="239,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Height="26"/>
+        <Button x:Name="add_button" Content="charge" Click="add_button_Click" HorizontalAlignment="Center" Margin="0,239,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.121,0.854" Height="67" Width="118" FontWeight="Bold" FontFamily="Cooper Black" FontSize="20"/>
+        <Label HorizontalAlignment="Left" Margin="42,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,0.077">
+            <Label x:Name="Name_" Content="Name:" Width="114" FontWeight="Bold" FontSize="18"/>
         </Label>
-        <Label x:Name="PhoneLabe" Content="Phone number:" HorizontalAlignment="Left" Margin="42,92,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CurrentPrecentLable" Content="Current battery precent:" HorizontalAlignment="Left" Margin="42,139,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="wantedhourslable" Content="Wanted hours:" HorizontalAlignment="Left" Margin="49,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <TextBox x:Name="WantedHourstextbox" HorizontalAlignment="Left" Margin="236,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="36"/>
+        <Label x:Name="PhoneLabe" Content="Phone number:" HorizontalAlignment="Left" Margin="42,92,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="CurrentPrecentLable" Content="Current battery precent:" HorizontalAlignment="Left" Margin="42,139,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="LeavingTimeLable" Content="Leaving time:" HorizontalAlignment="Left" Margin="49,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="hourTextbox" HorizontalAlignment="Left" Margin="236,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="26"/>
+        <Image Margin="0,0,519,248" Stretch="Fill" Source="pack://siteoforigin:,,,/עמדת הטענה[1316].jpg"/>
+        <Button x:Name="x" Content="x" HorizontalAlignment="Left" Margin="728,382,0,0" VerticalAlignment="Top" Height="42" Width="52" Click="x_Click"/>
+        <Label x:Name="precentsign" Content="%" HorizontalAlignment="Left" Margin="291,139,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.25,0.528"/>
+        <Button x:Name="torprint" Content="Show me the line!" HorizontalAlignment="Left" Margin="306,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,1.577" Height="34" Width="198" FontWeight="Bold" FontFamily="Cooper Black" FontSize="16" Click="torprint_Click"/>
+        <Label x:Name="lable1" Content="" HorizontalAlignment="Left" Margin="42,257,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.589,1.475" Visibility="Visible"/>
+        <Label x:Name="lable2" Content="" HorizontalAlignment="Left" Margin="42,288,0,0" VerticalAlignment="Top" Visibility="Visible"/>
+        <Label x:Name="lable5" Content="" HorizontalAlignment="Left" Margin="42,368,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.765,5.271" Visibility="Visible"/>
+        <Label x:Name="lableshow" Content="The line:" HorizontalAlignment="Left" Margin="93,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.422,0.817" Visibility="Hidden"/>
+        <Label x:Name="lable6" Content="" HorizontalAlignment="Left" Margin="42,394,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.353,1.323" Visibility="Visible"/>
+        <Label x:Name="lable4" Content="" HorizontalAlignment="Left" Margin="42,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.797,3.651" Visibility="Visible"/>
+        <Label x:Name="lable3" Content="" HorizontalAlignment="Left" Margin="42,314,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.589,3.5" Visibility="Visible"/>
 
     </Grid>
 </Window>

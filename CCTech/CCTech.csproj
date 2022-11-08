@@ -6,4 +6,42 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="barcode.jpeg" />
+    <None Remove="car1.jpg" />
+    <None Remove="car11.jpg" />
+    <None Remove="car12.jpeg" />
+    <None Remove="car13.png" />
+    <None Remove="car14.jpg" />
+    <None Remove="car2.jpg" />
+    <None Remove="car4456.jpeg" />
+    <None Remove="car5.jpg" />
+    <None Remove="car56.jpg" />
+    <None Remove="car6.jpg" />
+    <None Remove="car7.jpg" />
+    <None Remove="car9.jpg" />
+    <None Remove="Networked_EV_charging_Main_0.png" />
+    <None Remove="WhatsApp Image 2022-05-12 at 14.59.51.jpeg" />
+    <None Remove="עמדת הטענה[1316].jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="barcode.jpeg" />
+    <Resource Include="car1.jpg" />
+    <Resource Include="car11.jpg" />
+    <Resource Include="car12.jpeg" />
+    <Resource Include="car13.png" />
+    <Resource Include="car14.jpg" />
+    <Resource Include="car2.jpg" />
+    <Resource Include="car4456.jpeg" />
+    <Resource Include="car5.jpg" />
+    <Resource Include="car56.jpg" />
+    <Resource Include="car6.jpg" />
+    <Resource Include="car7.jpg" />
+    <Resource Include="car9.jpg" />
+    <Resource Include="Networked_EV_charging_Main_0.png" />
+    <Resource Include="WhatsApp Image 2022-05-12 at 14.59.51.jpeg" />
+    <Resource Include="עמדת הטענה[1316].jpg" />
+  </ItemGroup>
+
 </Project>

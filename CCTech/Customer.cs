@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Collections.Generic;
 
 namespace CCTech
 {
 
 	class Customer
 	{
+		public static double mekademOmes;
+		//public static int numOfCustomers = 0;
 		const double butteryWeightPrecents = 0.7;
 		const double hoursWeightPrecents = 0.3;
 		DateTime feeTimeStart;
@@ -21,23 +26,42 @@ namespace CCTech
 		private double priority;//For a priority queue
 		private float fineAmount = 0;//If he's late
 		private int currentPercentage;//To calculate his priority
+		public bool isInCharge;
 		private int wantedHours;
 		public static int nuberOfCustomers = 0;
-		
-		
-		public Customer(string name,string phone,int currentBattery,int wantedHours)
+
+		//public Customer()
+  //      {
+		//	nuberOfCustomers++;
+		//	this.name = "";
+		//	this.cellphoneNumber = "";
+		//	this.currentPercentage = 0;
+		//	this.exitTime = new DateTime();
+		//	mekademOmes = 0;
+		//}
+		public Customer(string name, string phone, int currentBattery, DateTime leavingTime)
 		{
 			nuberOfCustomers++;
 			this.name = name;
 			this.cellphoneNumber = phone;
 			this.currentPercentage = currentBattery;
-			this.wantedHours = wantedHours;
+			this.exitTime = leavingTime;			
+			mekademOmes = StandsCharging.numberOfStands / nuberOfCustomers;
+			isInCharge = false;
 		}
 		public void SetDepartureTime(DateTime newDepartureTime)
 		{
 			exitTime = newDepartureTime;
 		}
 
+		public DateTime getExitTime()
+        {
+			return exitTime;
+        }
+		public void setExitTime(DateTime newExitTime)
+        {
+			exitTime = newExitTime;
+        }
 		public DateTime GetDepartureTime()
 		{
 			return exitTime;
@@ -72,6 +96,8 @@ namespace CCTech
 		{
 			return cellphoneNumber;
 		}
+
+		public double Priority { get { return priority; } }
 
 		public void SetPriority(int newPriority)
 		{
@@ -111,7 +137,7 @@ namespace CCTech
 		{
 			return feeTimeEnd.Hour * 60 + feeTimeEnd.Minute - feeTimeStart.Hour * 60 + feeTimeStart.Minute;
 		}
-		public void RaundedHefreshHours()
+		public int RaundedHefreshHours()
 		{
 			int hefreshByMinuts = HefreshMinuts();
 			int x = hefreshByMinuts / 60;
@@ -124,6 +150,7 @@ namespace CCTech
 			{
 				wantedHours = x;
 			}
+			return wantedHours;
 		}
 
 
@@ -144,17 +171,18 @@ namespace CCTech
 
 		public int sendMassage(Customer c)//שולחת הודעה ומחזירה את סכום הקנס
 		{
-
-			Console.WriteLine("Come and pick up your car,fees will be applied for arriving late");// או לפתוח חלון
-			Console.WriteLine("when you arrived please enter 1");
-			int answere = int.Parse(Console.ReadLine());
-			while (answere != 1)
-			{
-				Console.WriteLine("when you arrived please enter 1,fees will be applied for arriving late");
-				answere = int.Parse(Console.ReadLine());
-			}
+            //MessageBox.Show("Come and pick up your car,fees will be applied for arriving late");
+            //// או לפתוח חלון
+            //MessageBox.Show("when you arrived please enter 1");
+            //int answere = Convert.ToInt32(Console.ReadLine());
+			//while (answere != 1)
+			//{
+			//	MessageBox.Show("when you arrived please enter 1,fees will be applied for arriving late");
+			//	answere = Convert.ToInt32(Console.ReadLine());
+			//}
+			
 			//הגיע
-
+			nuberOfCustomers--;
 			feeTimeEnd = DateTime.Now;
 			int sumTimeByMinuts = HefreshMinutsForFee();
 			if (sumTimeByMinuts < 15)
@@ -178,29 +206,79 @@ namespace CCTech
 			//string answer = Console.ReadLine();
 
 		}
+		public void startCharge()
+		{
+			this.entryTime = DateTime.Now;
+		}
+		public double possibblePrecents()//כמה אחוזים ניתן לו
+		{
+			 mekademOmes = StandsCharging.numberOfStands / nuberOfCustomers;
+			double p = mekademOmes * 100; //כמה אחוזים אפשר לתת לו להטעין
+			if (p + currentPercentage < 20)
+			{
+				p = 20 - currentPercentage;//מינימום סוללה ברכב
+			}
+			if (p + currentPercentage > 100)
+			{
+				p = 100 - currentPercentage;
+			}
+			return p;
+		}
+		public void checkIfFinishCharge()//חלק1
+		{
+			int minutesOfCharging = HefreshMinuts();
+			currentPercentage += (int)(HefreshMinuts() * percentsPerHour);
+
+            if (currentPercentage >= possibblePrecents() - 3)
+            {
+				feeTimeStart = DateTime.Now;
+				fineAmount = sendMassage(this);
+				
+				
+				currentPercentage += 3;//מוסיף את האחוזים הנותרים להטענה רצויה
+				if (fineAmount >= 15 && fineAmount < 100)
+				{
+					MessageBox.Show("You have a fee in amount of" + fineAmount);
+				}
+				else
+				{
+					MessageBox.Show("Your car will be taken");
+				}
+				//MessageBox.Show("Your car is charged succesfully!");
+
+        }
+        //לא סיימנו להטעין
+    }
+
+		public string ToString()
+        {
+			return name;
+        }
 		public void charging(int wantedHours)//מטעינה לפי מספר השעות הרצויות
 		{
 			int wantedPrecent = wantedHours * 15;//כמה אחוזים השעות טעינה האלו שוות
 			while (currentPercentage < wantedPrecent - 3)//כי אני שולחת הודעה בשלושה האחרונים שיבוא לקחת
 			{
-				currentPercentage = (int)(HefreshMinuts() * percentsPerHour);
+				currentPercentage += (int)(HefreshMinuts() * percentsPerHour);
 
 			}
 			//הטענו פחות 3 אחוזים
-			fineAmount = sendMassage(this);
-			feeTimeStart = DateTime.Now;
-			currentPercentage += 3;//מוסיף את האחוזים הנותרים להטענה רצויה
-			if (fineAmount >= 15 && fineAmount < 100)
-			{
-				Console.WriteLine("You have a fee in amount of" + fineAmount);
-			}
-			else
-			{
-				Console.WriteLine("Your car will be taken");
-			}
-			Console.WriteLine("Your car is charged succesfully!");
+			//fineAmount = sendMassage(this);
+			//	feeTimeStart = DateTime.Now;
+			//
+			//	currentPercentage += 3;//מוסיף את האחוזים הנותרים להטענה רצויה
+			//	if (fineAmount >= 15 && fineAmount < 100)
+			//	{
+			//		Console.WriteLine("You have a fee in amount of" + fineAmount);
+			//	}
+			//	else
+			//	{
+			//		Console.WriteLine("Your car will be taken");
+			//	}
+			//	Console.WriteLine("Your car is charged succesfully!");
+			//}
+
 		}
 
 	}
-
 }
